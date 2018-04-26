@@ -13,6 +13,6 @@
 <?php
     require "function.php";
 ?>
-</div>
+<input class="btn-class" type="button" onclick="document.location.reload()" value="Обновить"/>
 </body>
 </html>

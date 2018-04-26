@@ -1,4 +1,6 @@
-
+body{
+    text-align: center;
+}
 table{
     border-collapse: collapse;
     border: 1px black solid;
@@ -11,4 +13,16 @@ td,th{
     border: 3px black solid;
 
 }
-
+.btn-class {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    color: white;
+    padding: 20px 30px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-image: linear-gradient(to right, #77b9ef 0%, #4c64f0 51%, #1c38ef 100%);
+}

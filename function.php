@@ -14,73 +14,100 @@
     }
 
     //проверка клеток вокруг корабля
-        function chSea($kx, $ky, $x, $y, $sea, $fDeck)
+        function chSea($kx,$x, $y, $sea, $fDeck)
     {
 
         if($x >= 1 && $x <= 11 && $y >= 1 && $y <= 11 ){
 
             if($sea[$x][$y] == 1) {
+
                 return false;
+
             }
 
         if($kx){//вертикаль
             for($i = $x - 1; $i < $x + $fDeck + 1; $i++){ //вертикальная левая линия
+
                 if($sea[$i][$y - 1] != 0){
+
                     return false;
+
                 }
             }
             for($i = $x - 1; $i < $x + $fDeck + 1; $i++){ //вертикальная правая линия
+
                 if($sea[$i][$y + 1] != 0){
+
                     return false;
+
                 }
             }
             for($i = $y - 1; $i < $y + 2; $i++){ //горизонтальная верхняя линия
+
                 if($sea[$x - 1][$i] != 0){
+
                     return false;
+
                 }
             }
             for($i = $y - 1; $i < $y + 2; $i++){ //горизонтальная нижняя линия
+
                 if($sea[$x + $fDeck][$i] != 0){
+
                     return false;
+
                 }
             }
 
         }else{ // горизонталь
+
             for($i = $y - 1; $i < $y + $fDeck  + 1; $i++){ //верхняя линия
+
                 if($sea[$x - 1][$i] != 0){
+
                     return false;
+
                 }
             }
             for($i = $y - 1; $i < $y + $fDeck + 1; $i++){ //нижняя линия
+
                 if($sea[$x + 1][$i] != 0){
+
                     return false;
+
                 }
             }
             for($i = $x - 1; $i < $x + 2; $i++){ //левая линия
+
                 if($sea[$i][$y - 1] != 0){
+
                     return false;
+
                 }
             }
             for($i = $x - 1; $i < $x + 2; $i++){ //правая линия
+
                 if($sea[$i][$y + $fDeck] != 0){
+
                     return false;
+
                 }
             }
             }
+
             return true;
+
         }else{
+
             return false;
+
         }
     }
 
 function fourDeck($sea, $sDeck)
     {
         $fDeck = $sDeck;
-        $x = 0;
-        $y = 0;
-
-        $kx = rand(0, 1); // Направление корабля kx 1 , ky 0 - вертикально, kx 0 , ky 1 - горизонтально
-        $ky = ($kx == 0) ?  1 : 0;
+        $kx = rand(0, 1); // Направление корабля kx = 1  вертикально, иначе - горизонтально
 
         //генерируем начальные координаты
         if($kx == 0){
@@ -97,7 +124,7 @@ function fourDeck($sea, $sDeck)
 
         if($kx){
 
-            if(chSea($kx, $ky, $x, $y, $sea, $fDeck)){
+            if(chSea($kx, $x, $y, $sea, $fDeck)){
 
                 for($i = $x; $i < $x + $fDeck; $i++){
 
@@ -111,7 +138,7 @@ function fourDeck($sea, $sDeck)
             }
         }else{
 
-            if (chSea($kx, $ky, $x, $y, $sea, $fDeck)){
+            if (chSea($kx, $x, $y, $sea, $fDeck)){
 
                 for($i = $y; $i < $y + $fDeck; $i++){
 
