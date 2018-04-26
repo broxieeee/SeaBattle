@@ -2,7 +2,7 @@
     $widthSea = 12;
     $heightSea = 12;
 
-    $arr = array(array(),array(),array(),array(),array(),array(),array(),array(),array(),array());
+    $arr = array(array(),array(),array(),array(),array(),array(),array(),array(),array(),array(),array(),array());
 
     for( $i = 0; $i < $heightSea; $i++){
 
@@ -13,7 +13,7 @@
         }
     }
 
-    //проверка клеток вокруг коробля
+    //проверка клеток вокруг корабля
         function chSea($kx, $ky, $x, $y, $sea, $fDeck)
     {
 
@@ -83,7 +83,7 @@ function fourDeck($sea, $sDeck)
         $ky = ($kx == 0) ?  1 : 0;
 
         //генерируем начальные координаты
-        if($kx){
+        if($kx == 0){
 
             $x = rand(1, 10);
             $y =  rand(1, (11 - $fDeck));
@@ -99,9 +99,9 @@ function fourDeck($sea, $sDeck)
 
             if(chSea($kx, $ky, $x, $y, $sea, $fDeck)){
 
-                for($i = $y; $i < $y + $fDeck; $i++){
+                for($i = $x; $i < $x + $fDeck; $i++){
 
-                    $sea[$x][$i] = 1;
+                    $sea[$i][$y] = 1;
 
                 }
             }else{
@@ -113,9 +113,9 @@ function fourDeck($sea, $sDeck)
 
             if (chSea($kx, $ky, $x, $y, $sea, $fDeck)){
 
-                for($i = $x; $i < $x + $fDeck; $i++){
+                for($i = $y; $i < $y + $fDeck; $i++){
 
-                    $sea[$i][$y] = 1;
+                    $sea[$x][$i] = 1;
 
                 }
             }else{
